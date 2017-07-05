@@ -1,4 +1,4 @@
-package Main;
+package Contract;
 
 import java.util.ArrayList;
 
@@ -10,10 +10,8 @@ import Model.Character;
 
 public class Window extends JFrame
 {
- public void window(){
-    
-	ArrayList<Character> characters = new ArrayList<Character>();
-	ArrayList<JButton> buttons = new ArrayList<JButton>();
+ public void window(ArrayList<Character> characters,ArrayList<JButton> buttons){
+
 	
 	this.setTitle("Test");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

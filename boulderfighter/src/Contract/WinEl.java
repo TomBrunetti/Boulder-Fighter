@@ -1,4 +1,4 @@
-package Main;
+package Contract;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -10,6 +10,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
 import Model.Character;
 import Model.*;
 
@@ -19,6 +21,7 @@ public class WinEl extends JPanel implements ActionListener
 {
 	ArrayList<Character> characters = new ArrayList<Character>();
 	ArrayList<JButton> buttons = new ArrayList<JButton>();
+	Window W = new Window();
 	JLabel wallpaper;
 	
 	
@@ -28,6 +31,14 @@ public class WinEl extends JPanel implements ActionListener
 		this.characters = characters;
 		this.buttons = buttons;
 		setFocusable(true);
+		
+		for (int i = 0; i < buttons.size(); i++)
+		{
+			JButton tempButton = buttons.get(i);
+			tempButton.setBounds(1920/2-(225*i), 1080/2-50, 150, 100);
+			tempButton.addActionListener(this);
+			this.add(tempButton);
+		}
 		
 		ImageIcon ii = new ImageIcon("picture/background.png");
 		wallpaper = new JLabel(ii);
@@ -58,10 +69,18 @@ public class WinEl extends JPanel implements ActionListener
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		repaint();
-		
-		
+	public void actionPerformed(ActionEvent arg0) { // permet de définir les actions des boutons
+		if(arg0.getSource() == buttons.get(0))
+		{
+			SwingUtilities.windowForComponent(this).dispose();
+			buttons.clear();
+			W.window(characters,buttons);
+		}
+		if(arg0.getSource() == buttons.get(1))
+		{
+			SwingUtilities.windowForComponent(this).dispose();
+		}
+		else{}
 	}
 }
 		
