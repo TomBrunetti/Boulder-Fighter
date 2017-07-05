@@ -29,8 +29,6 @@ public class WinEl extends JPanel implements ActionListener
 		this.buttons = buttons;
 		setFocusable(true);
 		
-		characters.add(new Tank(300, 300));
-		
 		ImageIcon ii = new ImageIcon("picture/background.png");
 		wallpaper = new JLabel(ii);
 		wallpaper.setBounds(0, 0, 1920, 1080);

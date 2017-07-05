@@ -10,10 +10,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-	ArrayList<Character> characters = new ArrayList<Character>();
-	ArrayList<JButton> buttons = new ArrayList<JButton>();
     Window wd = new Window();
-		wd.window(characters,buttons);
+		wd.window();
 	}
 }
 
