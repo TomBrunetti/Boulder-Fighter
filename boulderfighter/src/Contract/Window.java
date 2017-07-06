@@ -13,7 +13,7 @@ public class Window extends JFrame
  public void window(ArrayList<Character> characters,ArrayList<JButton> buttons){
 
 	
-	this.setTitle("Test");
+	this.setTitle("Boulder Fighter");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setSize(1920, 1080);
 	this.setLocationRelativeTo(null);
@@ -21,7 +21,10 @@ public class Window extends JFrame
 	this.setAlwaysOnTop(true);
 	this.setContentPane(new WinEl(characters, buttons));
     this.setVisible(true);
+    
 
  }
+
+ 
 }
 

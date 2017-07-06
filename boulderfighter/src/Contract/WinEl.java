@@ -1,5 +1,6 @@
 package Contract;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -23,10 +25,15 @@ public class WinEl extends JPanel implements ActionListener
 	ArrayList<JButton> buttons = new ArrayList<JButton>();
 	Window W = new Window();
 	JLabel wallpaper;
+	String title = "TEST";
+	
+	
+	
 	
 	
 	public WinEl(ArrayList<Character> characters, ArrayList<JButton> buttons)
 	{
+		
 		this.setLayout(null); // pour les JButton
 		this.characters = characters;
 		this.buttons = buttons;
@@ -46,9 +53,12 @@ public class WinEl extends JPanel implements ActionListener
 		this.add(wallpaper);
 		
 		
+		
 	}
 	
-	public void paint(Graphics g)
+	
+	
+	public void paintCompenent(Graphics g)
 	{
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g; // change le g de graphics en grpahics 2d
@@ -73,8 +83,7 @@ public class WinEl extends JPanel implements ActionListener
 		if(arg0.getSource() == buttons.get(0))
 		{
 			SwingUtilities.windowForComponent(this).dispose();
-			buttons.clear();
-			W.window(characters,buttons);
+			
 		}
 		if(arg0.getSource() == buttons.get(1))
 		{
