@@ -1,6 +1,5 @@
 package Contract;
 
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
@@ -10,12 +9,10 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import Model.Character;
-import Model.*;
 
 
 public class WinEl extends JPanel implements ActionListener
@@ -25,7 +22,9 @@ public class WinEl extends JPanel implements ActionListener
 	ArrayList<JButton> buttons = new ArrayList<JButton>();
 	Window W = new Window();
 	JLabel wallpaper;
+	JLabel tank;
 	String title = "TEST";
+	
 	
 	
 	
@@ -33,7 +32,9 @@ public class WinEl extends JPanel implements ActionListener
 	
 	public WinEl(ArrayList<Character> characters, ArrayList<JButton> buttons)
 	{
-		
+		buttons.add(new JButton("Attack"));
+		buttons.add(new JButton("Defense"));
+		buttons.add(new JButton("Special Move"));
 		this.setLayout(null); // pour les JButton
 		this.characters = characters;
 		this.buttons = buttons;
@@ -42,10 +43,14 @@ public class WinEl extends JPanel implements ActionListener
 		for (int i = 0; i < buttons.size(); i++)
 		{
 			JButton tempButton = buttons.get(i);
-			tempButton.setBounds(1920/2-(225*i), 1080/2-50, 150, 100);
+			tempButton.setBounds(1250/2-(225*i), 1900/2-50, 150, 100);
 			tempButton.addActionListener(this);
 			this.add(tempButton);
 		}
+		ImageIcon ii2 = new ImageIcon("picture/tank.png");
+		tank = new JLabel(ii2);
+		tank.setBounds(1400, 550, 122, 116);
+		this.add(tank);
 		
 		ImageIcon ii = new ImageIcon("picture/background.png");
 		wallpaper = new JLabel(ii);
