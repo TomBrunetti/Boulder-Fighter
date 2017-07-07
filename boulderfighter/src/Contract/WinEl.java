@@ -10,11 +10,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-
+import Main.Arena;
 import Model.Character;
 
 
+@SuppressWarnings("serial")
 public class WinEl extends JPanel implements ActionListener
 
 {
@@ -24,8 +24,8 @@ public class WinEl extends JPanel implements ActionListener
 	JLabel wallpaper;
 	JLabel tank;
 	String title = "TEST";
-	
-	
+	int action = 0;
+	Gameplay g = new Gameplay();
 	
 	
 	
@@ -47,10 +47,10 @@ public class WinEl extends JPanel implements ActionListener
 			tempButton.addActionListener(this);
 			this.add(tempButton);
 		}
-		ImageIcon ii2 = new ImageIcon("picture/tank.png");
+		/*ImageIcon ii2 = new ImageIcon("picture/tank.png");
 		tank = new JLabel(ii2);
-		tank.setBounds(1400, 550, 122, 116);
-		this.add(tank);
+		tank.setBounds(500, 550, 122, 116);
+		this.add(tank);*/
 		
 		ImageIcon ii = new ImageIcon("picture/background.png");
 		wallpaper = new JLabel(ii);
@@ -63,7 +63,7 @@ public class WinEl extends JPanel implements ActionListener
 	
 	
 	
-	public void paintCompenent(Graphics g)
+	public void paint(Graphics g)
 	{
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g; // change le g de graphics en grpahics 2d
@@ -84,15 +84,29 @@ public class WinEl extends JPanel implements ActionListener
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) { // permet de définir les actions des boutons
+	public void actionPerformed(ActionEvent arg0) {// permet de définir les actions des boutons
+		Arena a = new Arena();
+		
 		if(arg0.getSource() == buttons.get(0))
 		{
-			SwingUtilities.windowForComponent(this).dispose();
+			action = 1;
+			int mode = a.getMode();
+			g.Fight(mode, action, characters);
 			
 		}
 		if(arg0.getSource() == buttons.get(1))
 		{
-			SwingUtilities.windowForComponent(this).dispose();
+			action = 2;
+			int mode = a.getMode();
+			g.Fight(mode, action, characters);
+			
+		}
+		if(arg0.getSource() == buttons.get(2))
+		{
+			action = 3;
+			int mode = a.getMode();
+			g.Fight(mode, action, characters);
+			
 		}
 		else{}
 	}
