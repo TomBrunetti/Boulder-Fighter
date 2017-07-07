@@ -56,6 +56,8 @@ public class WinEl extends JPanel implements ActionListener
 		
 		
 		
+		
+		
 	}
 	
 	

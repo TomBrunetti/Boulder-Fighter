@@ -258,23 +258,21 @@ public class Gameplay {
 		{
 			Hard(Action,id_Character,id_AI);
 		}
-		if(LifeAI<=0)
+		if(LifeAI<=0||Life<=0)
 		{
 			
-			
-			
-		}
-		if(Life<=0)
-		{
-			
-			int a=0,b=0,c=0,d=0;
-			if (id_AI==1){a++;}
-			if (id_AI==2){b++;}
-			if (id_AI==3){c++;}
-			if (id_AI==4){d++;}
-			
-			Boolean Result=false;
-			
+			if(Life<=0)
+			{
+				
+				characters.clear();
+				characters.add(new Lose(720, 210, 0, 0, 0, 0));
+				
+			}
+			else
+			{
+				characters.clear();
+				characters.add(new Win(720, 210, 0, 0, 0, 0));
+			}	
 		}
 		else
 		{
