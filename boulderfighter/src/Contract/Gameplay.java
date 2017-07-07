@@ -261,13 +261,7 @@ public class Gameplay {
 		if(LifeAI<=0)
 		{
 			
-			int a=0,b=0,c=0,d=0;
-			if (id_Character==1){a++;}
-			if (id_Character==2){b++;}
-			if (id_Character==3){c++;}
-			if (id_Character==4){d++;}
 			
-			Boolean Result=true;
 			
 		}
 		if(Life<=0)
@@ -315,35 +309,35 @@ public class Gameplay {
 	{
 		if (id_Character==1)
 		{
-			characters.add(new Fighter(100,900/2-84,1,Life,3,2));
+			characters.add(new Fighter(500,550,1,Life,3,2));
 		}
 		if (id_Character==2)
 		{
-			characters.add(new Healer(100,900/2-88,2,Life,4,1));
+			characters.add(new Healer(500,550,2,Life,4,1));
 		}
 		if (id_Character==3)
 		{
-			characters.add(new Tank(100,900/2-45,3,Life,5,1));
+			characters.add(new Tank(500,550,3,Life,5,1));
 		}
 		if (id_Character==4)
 		{
-			characters.add(new Mushroom(100,900/2-84,4,Life,3,1));
+			characters.add(new Mushroom(500,550,4,Life,3,1));
 		}
 		if (id_AI==1)
 		{
-			characters.add(new Fighter(635,900/2-84,1,LifeAI,3,2));
+			characters.add(new Fighter(1400,550,1,LifeAI,3,2));
 		}
 		if (id_AI==2)
 		{
-			characters.add(new Healer(635,900/2-88,2,LifeAI,4,1));
+			characters.add(new Healer(1400,550,2,LifeAI,4,1));
 		}
 		if (id_AI==3)
 		{
-			characters.add(new Tank(635,900/2-45,3,LifeAI,5,1));
+			characters.add(new Tank(1400,550,3,LifeAI,5,1));
 		}
 		if (id_AI==4)
 		{
-			characters.add(new Mushroom(635,900/2-84,4,LifeAI,3,1));
+			characters.add(new Mushroom(1400,550,4,LifeAI,3,1));
 		}
 	}
 }

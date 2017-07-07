@@ -10,7 +10,7 @@ import Model.Character;
 
 public class Window extends JFrame
 {
- public void window(ArrayList<Character> characters,ArrayList<JButton> buttons){
+ public void window(ArrayList<Character> characters,ArrayList<JButton> buttons,int mode){
 
 	
 	this.setTitle("Boulder Fighter");
@@ -19,7 +19,7 @@ public class Window extends JFrame
 	this.setLocationRelativeTo(null);
 	this.setResizable(false);
 	this.setAlwaysOnTop(true);
-	this.setContentPane(new WinEl(characters, buttons));
+	this.setContentPane(new WinEl(characters, buttons, mode));
     this.setVisible(true);
     
 

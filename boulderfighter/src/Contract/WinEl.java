@@ -10,7 +10,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import Main.Arena;
 import Model.Character;
 
 
@@ -24,20 +23,21 @@ public class WinEl extends JPanel implements ActionListener
 	JLabel wallpaper;
 	JLabel tank;
 	String title = "TEST";
-	int action = 0;
+	int action = 0,mode = 1;
 	Gameplay g = new Gameplay();
 	
 	
 	
 	
-	public WinEl(ArrayList<Character> characters, ArrayList<JButton> buttons)
+	public WinEl(ArrayList<Character> characters, ArrayList<JButton> buttons,int mode)
 	{
+		this.mode=mode;
 		buttons.add(new JButton("Attack"));
 		buttons.add(new JButton("Defense"));
 		buttons.add(new JButton("Special Move"));
-		this.setLayout(null); // pour les JButton
-		this.characters = characters;
-		this.buttons = buttons;
+		this.setLayout(null); // for JButton
+		this.characters = characters; // association of character
+		this.buttons = buttons; // association of buttons
 		setFocusable(true);
 		
 		for (int i = 0; i < buttons.size(); i++)
@@ -47,10 +47,7 @@ public class WinEl extends JPanel implements ActionListener
 			tempButton.addActionListener(this);
 			this.add(tempButton);
 		}
-		/*ImageIcon ii2 = new ImageIcon("picture/tank.png");
-		tank = new JLabel(ii2);
-		tank.setBounds(500, 550, 122, 116);
-		this.add(tank);*/
+		
 		
 		ImageIcon ii = new ImageIcon("picture/background.png");
 		wallpaper = new JLabel(ii);
@@ -85,30 +82,27 @@ public class WinEl extends JPanel implements ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {// permet de définir les actions des boutons
-		Arena a = new Arena();
 		
 		if(arg0.getSource() == buttons.get(0))
 		{
 			action = 1;
-			int mode = a.getMode();
 			g.Fight(mode, action, characters);
 			
 		}
 		if(arg0.getSource() == buttons.get(1))
 		{
 			action = 2;
-			int mode = a.getMode();
 			g.Fight(mode, action, characters);
 			
 		}
 		if(arg0.getSource() == buttons.get(2))
 		{
 			action = 3;
-			int mode = a.getMode();
 			g.Fight(mode, action, characters);
 			
 		}
 		else{}
+		repaint();
 	}
 }
 		
