@@ -15,7 +15,7 @@ public class Window extends JFrame
 	
 	this.setTitle("Boulder Fighter");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	this.setSize(1920, 1080);
+	this.setSize(1920, 800);
 	this.setLocationRelativeTo(null);
 	this.setResizable(false);
 	this.setAlwaysOnTop(true);

@@ -21,8 +21,6 @@ public class WinEl extends JPanel implements ActionListener
 	ArrayList<JButton> buttons = new ArrayList<JButton>();
 	Window W = new Window();
 	JLabel wallpaper;
-	JLabel tank;
-	String title = "TEST";
 	int action = 0,mode = 1;
 	Gameplay g = new Gameplay();
 	
@@ -32,9 +30,9 @@ public class WinEl extends JPanel implements ActionListener
 	public WinEl(ArrayList<Character> characters, ArrayList<JButton> buttons,int mode)
 	{
 		this.mode=mode;
-		buttons.add(new JButton("Attack"));
-		buttons.add(new JButton("Defense"));
-		buttons.add(new JButton("Special Move"));
+		buttons.add(new JButton("Attack")); // add attack button
+		buttons.add(new JButton("Defense")); // add defense button
+		buttons.add(new JButton("Special Move")); // add special move button
 		this.setLayout(null); // for JButton
 		this.characters = characters; // association of character
 		this.buttons = buttons; // association of buttons
@@ -43,16 +41,16 @@ public class WinEl extends JPanel implements ActionListener
 		for (int i = 0; i < buttons.size(); i++)
 		{
 			JButton tempButton = buttons.get(i);
-			tempButton.setBounds(1250/2-(225*i), 1900/2-50, 150, 100);
+			tempButton.setBounds(1000/2-(225*i), 1000/2-50, 150, 100);
 			tempButton.addActionListener(this);
 			this.add(tempButton);
 		}
 		
 		
-		ImageIcon ii = new ImageIcon("picture/background.png");
-		wallpaper = new JLabel(ii);
-		wallpaper.setBounds(0, 0, 1920, 1080);
-		this.add(wallpaper);
+		ImageIcon ii = new ImageIcon("picture/background.png"); //import background in ii
+		wallpaper = new JLabel(ii); // new wallpaper object
+		wallpaper.setBounds(0, 0, 1920, 1080); // setting of wallpaper
+		this.add(wallpaper); // add new wallpaper
 		
 		
 		
@@ -65,7 +63,7 @@ public class WinEl extends JPanel implements ActionListener
 	public void paint(Graphics g)
 	{
 		super.paint(g);
-		Graphics2D g2d = (Graphics2D) g; // change le g de graphics en grpahics 2d
+		Graphics2D g2d = (Graphics2D) g; // change g graphics into graphics 2d
 		for (int i = 0; i < characters.size(); i++)
 		{
 			Character tempPlayer = characters.get(i);
@@ -83,7 +81,7 @@ public class WinEl extends JPanel implements ActionListener
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {// permet de définir les actions des boutons
+	public void actionPerformed(ActionEvent arg0) {// setting of action button
 		
 		if(arg0.getSource() == buttons.get(0))
 		{

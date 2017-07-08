@@ -3,6 +3,8 @@ package Contract;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.swing.JButton;
+
 import Model.Character;
 import Model.*;
 
@@ -11,6 +13,7 @@ public class Gameplay {
 	
 	private int Life,Dmg,LifeAI,DmgAI,FLife,FLifeAI,id_Character,id_AI;
 	ArrayList<Character> characters = new ArrayList<Character>();
+	ArrayList<JButton> buttons = new ArrayList<JButton>();
 	
 		
 	public void special(int id,int idE,int Action,int ActionE,boolean AI)
@@ -265,13 +268,47 @@ public class Gameplay {
 			{
 				
 				characters.clear();
+				buttons.clear();
 				characters.add(new Lose(720, 210, 0, 0, 0, 0));
+				if (id_AI==1)
+				{
+					characters.add(new Fighter(1400,550,1,0,0,0));
+				}
+				if (id_AI==2)
+				{
+					characters.add(new Healer(1400,550,2,0,0,0));
+				}
+				if (id_AI==3)
+				{
+					characters.add(new Tank(1400,550,3,0,0,0));
+				}
+				if (id_AI==4)
+				{
+					characters.add(new Mushroom(1400,550,4,0,0,0));
+				}
 				
 			}
 			else
 			{
 				characters.clear();
-				characters.add(new Win(720, 210, 0, 0, 0, 0));
+				buttons.clear();
+				characters.add(new Win(750, 210, 0, 0, 0, 0));
+				if (id_Character==1)
+				{
+					characters.add(new Fighter(500,550,1,0,0,0));
+				}
+				if (id_Character==2)
+				{
+					characters.add(new Healer(500,550,2,0,0,0));
+				}
+				if (id_Character==3)
+				{
+					characters.add(new Tank(500,550,3,0,0,0));
+				}
+				if (id_Character==4)
+				{
+					characters.add(new Mushroom(500,550,4,0,0,0));
+				}
 			}	
 		}
 		else
