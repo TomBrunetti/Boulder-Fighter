@@ -18,7 +18,7 @@ public class Gameplay {
 		
 	public void special(int id,int idE,int Action,int ActionE,boolean AI) // methods for character's special move
 	{
-		if (id==1 && ActionE==1) 
+		if (id==1 && ActionE==1) // if fighter use special move and ennemy use attack
 		{
 			if(AI==true){lifeP=lifeP-dC;}
 			else{lifeIA=lifeIA-dIA;}
@@ -37,7 +37,7 @@ public class Gameplay {
 				lifeP=lifeP+2;
 				if (lifeP>fLife){lifeP=fLife;}
 			}
-			System.out.println("Special: Heal(Life +2)");
+			System.out.println("Special Move(Life +2)");
 		}
 		
 		if (id==3)
@@ -53,13 +53,13 @@ public class Gameplay {
 			lifeP=lifeP-1;
 			}
 			
-			System.out.println("Special: PowerBlow(dC+1,Life-1)");
+			System.out.println("Special Move(dC+1,Life-1)");
 			if (ActionE==2)
 			{
 				System.out.println("protection : ON");
 				if(AI==false)
 				{
-				System.out.println("You hurt yourself");
+				System.out.println("Player hurt himself");
 				lifeIA=lifeIA+dC+1;
 				}
 				else
@@ -158,7 +158,7 @@ public class Gameplay {
 	
 	public void go(int Action,int Action_AI,int idC,int idIA) // method during a round when player and chooses the actions
 	{
-		boolean AI;
+		boolean AI; // set damage depending of each characters actions
 		if (Action_AI==2) // if IA use defense
 		{
 			System.out.println("AI protect itself");
@@ -201,14 +201,14 @@ public class Gameplay {
 		System.out.println("AI Life: "+lifeIA);
 	}
 	
-	public void alea(int Action,int idC,int idIA)
+	public void alea(int Action,int idC,int idIA) // Algorytm of IA Action in alea mode
 	{
 		Random r = new Random();
 		int Action_AI=1+r.nextInt(3-1);
 		go(Action,Action_AI,idC,idIA);
 	}
 	
-	public void normal(int Action,int idC,int idIA) // algorytm of the normal mode
+	public void normal(int Action,int idC,int idIA) // algorytm of IA in normal mode
 	{
 		Random r = new Random(); 
 		int Action_AI=1;
@@ -217,7 +217,7 @@ public class Gameplay {
 		go(Action,Action_AI,idC,idIA); // apply the action with parameters
 	}
 	
-	public void hard(int Action,int idC,int idIA) // Algorytm of the hard mode 
+	public void hard(int Action,int idC,int idIA) // Algorytm of IA in hard mode 
 	{
 		int Action_AI=1;
 		if (Action==1)
@@ -346,33 +346,41 @@ public class Gameplay {
 		{
 			characters.add(new Damager(500,550,1,lifeP,3,2));
 		}
+		
 		if (idC==2)
 		{
 			characters.add(new Healer(500,550,2,lifeP,4,1));
 		}
+		
 		if (idC==3)
 		{
 			characters.add(new Tank(500,550,3,lifeP,5,1));
 		}
+		
 		if (idC==4)
 		{
 			characters.add(new Mushroom(500,550,4,lifeP,3,1));
 		}
+		
 		if (idIA==1)
 		{
 			characters.add(new Damager(1400,550,1,lifeIA,3,2));
 		}
+		
 		if (idIA==2)
 		{
 			characters.add(new Healer(1400,550,2,lifeIA,4,1));
 		}
+		
 		if (idIA==3)
 		{
 			characters.add(new Tank(1400,550,3,lifeIA,5,1));
 		}
+		
 		if (idIA==4)
 		{
 			characters.add(new Mushroom(1400,550,4,lifeIA,3,1));
 		}
+		
 	}
 }
