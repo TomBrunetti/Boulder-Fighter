@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import Model.*;
 import Model.Character;
 
 public class Window extends JFrame
 {
- public void window(ArrayList<Character> characters,ArrayList<JButton> buttons,int mode){
+ 
+	private static final long serialVersionUID = 1L; // add default serial versionID
+
+public void window(ArrayList<Character> characters,ArrayList<JButton> buttons,int mode){
 
 	
 	this.setTitle("Boulder Fighter");
@@ -18,7 +20,7 @@ public class Window extends JFrame
 	this.setSize(1920, 800);
 	this.setLocationRelativeTo(null);
 	this.setResizable(false);
-	this.setAlwaysOnTop(true);
+	this.setAlwaysOnTop(false);
 	this.setContentPane(new WinEl(characters, buttons, mode));
     this.setVisible(true);
     

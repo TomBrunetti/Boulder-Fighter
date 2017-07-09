@@ -83,22 +83,22 @@ public class WinEl extends JPanel implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent arg0) {// setting of action button
 		
-		if(arg0.getSource() == buttons.get(0))
+		if(arg0.getSource() == buttons.get(0)) // if attack's button is pressed
 		{
 			action = 1;
-			g.Fight(mode, action, characters);
+			g.fight(mode, action, characters); // then attack
 			
 		}
-		if(arg0.getSource() == buttons.get(1))
+		if(arg0.getSource() == buttons.get(1)) // if defense's button is pressed
 		{
 			action = 2;
-			g.Fight(mode, action, characters);
+			g.fight(mode, action, characters); // defense
 			
 		}
-		if(arg0.getSource() == buttons.get(2))
+		if(arg0.getSource() == buttons.get(2)) // if special's button is pressed
 		{
 			action = 3;
-			g.Fight(mode, action, characters);
+			g.fight(mode, action, characters); // special move
 			
 		}
 		else{}

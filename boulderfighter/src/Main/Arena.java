@@ -50,7 +50,7 @@ public class Arena  {
 	
 		    if(CC==4)
 		    {
-		    	characters.add(new Fighter(500, 550, 1, 3, 3, 2));
+		    	characters.add(new Damager(500, 550, 1, 3, 3, 2));
 		    }	
 		    Random r = new Random();
 		    CC= 1+r.nextInt(5-1);
@@ -69,7 +69,7 @@ public class Arena  {
 	
 		    if(CC==4)
 		    {
-		    	characters.add(new Fighter(1400, 550, 1, 3, 3, 2));
+		    	characters.add(new Damager(1400, 550, 1, 3, 3, 2));
 		    }
 		    }
 		

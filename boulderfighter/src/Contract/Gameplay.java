@@ -11,7 +11,7 @@ import Model.*;
 
 public class Gameplay {
 	
-	private int Life,Dmg,LifeAI,DmgAI,FLife,FLifeAI,id_Character,id_AI;
+	private int lifeP,dC,lifeIA,dIA,fLife,flifeIA,idC,idIA;
 	ArrayList<Character> characters = new ArrayList<Character>();
 	ArrayList<JButton> buttons = new ArrayList<JButton>();
 	
@@ -20,22 +20,22 @@ public class Gameplay {
 	{
 		if (id==1 && ActionE==1)
 		{
-			if(AI==true){Life=Life-Dmg;}
-			else{LifeAI=LifeAI-DmgAI;}
-			System.out.println("Special: Dmg reverberate");
+			if(AI==true){lifeP=lifeP-dC;}
+			else{lifeIA=lifeIA-dIA;}
+			System.out.println("Special: dC reverberate");
 		}
 		
 		if (id==2)
 		{
 			if(AI==true) 
 			{
-				LifeAI=LifeAI+2;
-				if (LifeAI>FLifeAI){LifeAI=FLifeAI;}
+				lifeIA=lifeIA+2;
+				if (lifeIA>flifeIA){lifeIA=flifeIA;}
 			}
 			else
 			{
-				Life=Life+2;
-				if (Life>FLife){Life=FLife;}
+				lifeP=lifeP+2;
+				if (lifeP>fLife){lifeP=fLife;}
 			}
 			System.out.println("Special: Heal(Life +2)");
 		}
@@ -44,28 +44,28 @@ public class Gameplay {
 		{
 			if(AI==true)
 			{
-			LifeAI=LifeAI-1;
-			Life=Life-DmgAI-1;
+			lifeIA=lifeIA-1;
+			lifeP=lifeP-dIA-1;
 			}
 			else
 			{
-			LifeAI=LifeAI-Dmg-1;
-			Life=Life-1;
+			lifeIA=lifeIA-dC-1;
+			lifeP=lifeP-1;
 			}
 			
-			System.out.println("Special: PowerBlow(Dmg+1,Life-1)");
+			System.out.println("Special: PowerBlow(dC+1,Life-1)");
 			if (ActionE==2)
 			{
 				System.out.println("protection : ON");
 				if(AI==false)
 				{
 				System.out.println("You hurt yourself");
-				LifeAI=LifeAI+Dmg+1;
+				lifeIA=lifeIA+dC+1;
 				}
 				else
 				{
 				System.out.println("ennemy hurt itself");
-				Life=Life+DmgAI+1;
+				lifeP=lifeP+dIA+1;
 				}
 			}
 			
@@ -73,11 +73,11 @@ public class Gameplay {
 			{
 				if(AI==true)
 				{
-					LifeAI=LifeAI-DmgAI-1;
+					lifeIA=lifeIA-dIA-1;
 				}
 				else
 				{
-					Life=Life-Dmg-1;
+					lifeP=lifeP-dC-1;
 				}
 			}
 		}
@@ -88,19 +88,19 @@ public class Gameplay {
 			{
 				if(Action==1)
 				{
-					LifeAI=LifeAI+1;
+					lifeIA=lifeIA+1;
 				}
-					Life=Life-DmgAI-1;
+					lifeP=lifeP-dIA-1;
 				if(Action==3)
 				{
 					if(id==3)
 					{
-						LifeAI=LifeAI+1;
-						Life=Life-DmgAI-2;
+						lifeIA=lifeIA+1;
+						lifeP=lifeP-dIA-2;
 					}
 					if(id==4)
 					{
-						Life=Life-DmgAI;
+						lifeP=lifeP-dIA;
 					}
 				}
 			}
@@ -108,35 +108,35 @@ public class Gameplay {
 			{
 				if(ActionE==1)
 				{
-					Life=Life+1;
+					lifeP=lifeP+1;
 				}
-					LifeAI=LifeAI-Dmg-1;
+					lifeIA=lifeIA-dC-1;
 				if(ActionE==3)
 				{
 					if(idE==3)
 					{
-						Life=Life+1;
-						LifeAI=LifeAI-Dmg-2;
+						lifeP=lifeP+1;
+						lifeIA=lifeIA-dC-2;
 					}
 					if(idE==4)
 					{
-						LifeAI=LifeAI-Dmg;
+						lifeIA=lifeIA-dC;
 					}
 				}
 			}
-			System.out.println("Special: D.Mg (Dmg+1,DmgE-1)");
+			System.out.println("Special: D.Mg (dC+1,dCE-1)");
 			
 			if (ActionE==2)
 			{
 				if(AI==true)
 				{
-				LifeAI=LifeAI-1;
-				Life=Life+1;
+				lifeIA=lifeIA-1;
+				lifeP=lifeP+1;
 				}
 				else
 				{
-				LifeAI=LifeAI+1;
-				Life=Life-1;
+				lifeIA=lifeIA+1;
+				lifeP=lifeP-1;
 				}
 				System.out.println("protection : ON");
 				System.out.println("Noting Happen");
@@ -146,17 +146,17 @@ public class Gameplay {
 			{
 				if(AI==true)
 				{
-				LifeAI=LifeAI-2;
+				lifeIA=lifeIA-2;
 				}
 				else
 				{
-				Life=Life-2;
+				lifeP=lifeP-2;
 				}
 			}
 		}
 	}
 	
-	public void go(int Action,int Action_AI,int id_Character,int id_AI)
+	public void go(int Action,int Action_AI,int idC,int idIA)
 	{
 		boolean AI;
 		if (Action_AI==2)
@@ -173,56 +173,56 @@ public class Gameplay {
 			if (Action_AI==2)
 			{
 				System.out.println("But the AI protect itself");
-				LifeAI=LifeAI+1-Dmg;
+				lifeIA=lifeIA+1-dC;
 			}
-			else{LifeAI=LifeAI-Dmg;}
+			else{lifeIA=lifeIA-dC;}
 		}
 		if (Action==3)
 		{
 			AI=false;
-			special(id_Character,id_AI,Action,Action_AI,AI);
+			special(idC,idIA,Action,Action_AI,AI);
 		}
 		if (Action_AI==1)
 		{
 			System.out.println("AI attack");
 			if (Action==2)
 			{
-				Life=Life+1-DmgAI;
+				lifeP=lifeP+1-dIA;
 				System.out.println("But you're protecting yourself");
 			}
-			else{Life=Life-DmgAI;}
+			else{lifeP=lifeP-dIA;}
 		}
 		if (Action_AI==3)
 		{
 			AI=true;
-			special(id_AI,id_Character,Action_AI,Action,AI);
+			special(idIA,idC,Action_AI,Action,AI);
 		}
-		System.out.println("Your Life: "+Life);
-		System.out.println("AI Life: "+LifeAI);
+		System.out.println("Your Life: "+lifeP);
+		System.out.println("AI Life: "+lifeIA);
 	}
 	
-	public void Alea(int Action,int id_Character,int id_AI)
+	public void alea(int Action,int idC,int idIA)
 	{
 		Random r = new Random();
 		int Action_AI=1+r.nextInt(3-1);
-		go(Action,Action_AI,id_Character,id_AI);
+		go(Action,Action_AI,idC,idIA);
 	}
 	
-	public void Normal(int Action,int id_Character,int id_AI)
+	public void normal(int Action,int idC,int idIA)
 	{
 		Random r = new Random();
 		int Action_AI=1;
 		if (Action==1){Action_AI=2+r.nextInt(3-2);}
 		if (Action==3){Action_AI=3;}		
-		go(Action,Action_AI,id_Character,id_AI);
+		go(Action,Action_AI,idC,idIA);
 	}
 	
-	public void Hard(int Action,int id_Character,int id_AI)
+	public void hard(int Action,int idC,int idIA)
 	{
 		int Action_AI=1;
 		if (Action==1)
 		{
-			if (id_Character==1 || id_Character==4)
+			if (idC==1 || idC==4)
 			{
 				Action_AI=3;
 			}
@@ -230,7 +230,7 @@ public class Gameplay {
 		}
 		if (Action==2)
 		{
-			if (id_AI==2)
+			if (idIA==2)
 			{
 				Action_AI=3;
 			}
@@ -238,51 +238,51 @@ public class Gameplay {
 		}
 		if (Action==3)
 		{
-			if (id_Character==1 || id_Character==3 || id_Character==4)
+			if (idC==1 || idC==3 || idC==4)
 			{
 				Action_AI=2;
 			}
 		}
-		go(Action,Action_AI,id_Character,id_AI);
+		go(Action,Action_AI,idC,idIA);
 	}
 	
-	public void Fight(int Difficulty,int Action,ArrayList<Character> characters)
+	public void fight(int Difficulty,int Action,ArrayList<Character> characters)
 	{
 		setCharacter(characters);
 		if (Difficulty==1)
 		{
-			Alea(Action,id_Character,id_AI);
+			alea(Action,idC,idIA);
 		}
 		if (Difficulty==2)
 		{
-			Normal(Action,id_Character,id_AI);
+			normal(Action,idC,idIA);
 		}
 		if (Difficulty==3)
 		{
-			Hard(Action,id_Character,id_AI);
+			hard(Action,idC,idIA);
 		}
-		if(LifeAI<=0||Life<=0)
+		if(lifeIA<=0||lifeP<=0)
 		{
 			
-			if(Life<=0)
+			if(lifeP<=0)
 			{
 				
 				characters.clear();
 				buttons.clear();
 				characters.add(new Lose(720, 210, 0, 0, 0, 0));
-				if (id_AI==1)
+				if (idIA==1)
 				{
-					characters.add(new Fighter(1400,550,1,0,0,0));
+					characters.add(new Damager(1400,550,1,0,0,0));
 				}
-				if (id_AI==2)
+				if (idIA==2)
 				{
 					characters.add(new Healer(1400,550,2,0,0,0));
 				}
-				if (id_AI==3)
+				if (idIA==3)
 				{
 					characters.add(new Tank(1400,550,3,0,0,0));
 				}
-				if (id_AI==4)
+				if (idIA==4)
 				{
 					characters.add(new Mushroom(1400,550,4,0,0,0));
 				}
@@ -293,19 +293,19 @@ public class Gameplay {
 				characters.clear();
 				buttons.clear();
 				characters.add(new Win(750, 210, 0, 0, 0, 0));
-				if (id_Character==1)
+				if (idC==1)
 				{
-					characters.add(new Fighter(500,550,1,0,0,0));
+					characters.add(new Damager(500,550,1,0,0,0));
 				}
-				if (id_Character==2)
+				if (idC==2)
 				{
 					characters.add(new Healer(500,550,2,0,0,0));
 				}
-				if (id_Character==3)
+				if (idC==3)
 				{
 					characters.add(new Tank(500,550,3,0,0,0));
 				}
-				if (id_Character==4)
+				if (idC==4)
 				{
 					characters.add(new Mushroom(500,550,4,0,0,0));
 				}
@@ -314,7 +314,7 @@ public class Gameplay {
 		else
 		{
 		characters.clear();
-		Reset(characters);
+		reset(characters);
 		}
 	}
 	
@@ -325,54 +325,54 @@ public class Gameplay {
 			Character TempCharacter = characters.get(i);
 			if(i==0)
 			{
-				id_Character = TempCharacter.getId();
-				Life = TempCharacter.getLife();
-				FLife = TempCharacter.getFLife();
-				Dmg = TempCharacter.getDmg();
+				idC = TempCharacter.getId();
+				lifeP = TempCharacter.getLife();
+				fLife = TempCharacter.getFLife();
+				dC = TempCharacter.getDmg();
 			}
 			else
 			{
-				id_AI = TempCharacter.getId();
-				LifeAI = TempCharacter.getLife();
-				FLifeAI = TempCharacter.getFLife();
-				DmgAI = TempCharacter.getDmg();
+				idIA = TempCharacter.getId();
+				lifeIA = TempCharacter.getLife();
+				flifeIA = TempCharacter.getFLife();
+				dIA = TempCharacter.getDmg();
 			}
 		}
 	}
 	
-	public void Reset(ArrayList<Character> characters)
+	public void reset(ArrayList<Character> characters)
 	{
-		if (id_Character==1)
+		if (idC==1)
 		{
-			characters.add(new Fighter(500,550,1,Life,3,2));
+			characters.add(new Damager(500,550,1,lifeP,3,2));
 		}
-		if (id_Character==2)
+		if (idC==2)
 		{
-			characters.add(new Healer(500,550,2,Life,4,1));
+			characters.add(new Healer(500,550,2,lifeP,4,1));
 		}
-		if (id_Character==3)
+		if (idC==3)
 		{
-			characters.add(new Tank(500,550,3,Life,5,1));
+			characters.add(new Tank(500,550,3,lifeP,5,1));
 		}
-		if (id_Character==4)
+		if (idC==4)
 		{
-			characters.add(new Mushroom(500,550,4,Life,3,1));
+			characters.add(new Mushroom(500,550,4,lifeP,3,1));
 		}
-		if (id_AI==1)
+		if (idIA==1)
 		{
-			characters.add(new Fighter(1400,550,1,LifeAI,3,2));
+			characters.add(new Damager(1400,550,1,lifeIA,3,2));
 		}
-		if (id_AI==2)
+		if (idIA==2)
 		{
-			characters.add(new Healer(1400,550,2,LifeAI,4,1));
+			characters.add(new Healer(1400,550,2,lifeIA,4,1));
 		}
-		if (id_AI==3)
+		if (idIA==3)
 		{
-			characters.add(new Tank(1400,550,3,LifeAI,5,1));
+			characters.add(new Tank(1400,550,3,lifeIA,5,1));
 		}
-		if (id_AI==4)
+		if (idIA==4)
 		{
-			characters.add(new Mushroom(1400,550,4,LifeAI,3,1));
+			characters.add(new Mushroom(1400,550,4,lifeIA,3,1));
 		}
 	}
 }

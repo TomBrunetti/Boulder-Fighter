@@ -5,11 +5,11 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-public class Fighter extends Character{
+public class Damager extends Character{
 
 	GameImage CI = new GameImage(); 
 	
-	public Fighter(int x, int y, int id, int Life,int FLife, int Dmg) {
+	public Damager(int x, int y, int id, int Life,int FLife, int Dmg) {
 		super(x, y, id, Life,FLife, Dmg);
 	}
 	
@@ -34,7 +34,7 @@ public class Fighter extends Character{
 	}
 	public void draw(Graphics2D g2d)
 	{
-		g2d.drawImage(getFighterImg("picture/fighter.png"), x, y, null);
+		g2d.drawImage(getDamagerImg("picture/fighter.png"), x, y, null);
 		for (int i=0;i<Life;i++)
 		{
 			g2d.drawImage(CI.getLifeImg(), i*64, 0, null);
@@ -48,7 +48,7 @@ public class Fighter extends Character{
 	
 	public void drawReverse(Graphics2D g2d)
 	{
-		g2d.drawImage(getFighterImg("picture/fighterreverse.png"), x, y, null);
+		g2d.drawImage(getDamagerImg("picture/fighterreverse.png"), x, y, null);
 		for (int i=0;i<Life;i++)
 		{
 			g2d.drawImage(CI.getLifeImg(), 1772-i*64, 0, null);
@@ -60,17 +60,18 @@ public class Fighter extends Character{
 		}
 	}
 	
-	public int getFighterLife()
+	public int getDamagerLife()
 	{
 		return Life;
 	}
 	
-	public int getFighterDmg()
+	
+	public int getDamagerDmg()
 	{
 		return Dmg;
 	}
 	
-	public Image getFighterImg(String image)
+	public Image getDamagerImg(String image)
 	{
 		ImageIcon ic = new ImageIcon(image);
 		return ic.getImage();	
