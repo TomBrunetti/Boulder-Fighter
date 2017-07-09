@@ -11,21 +11,21 @@ import Model.*;
 
 public class Gameplay {
 	
-	private int lifeP,dC,lifeIA,dIA,fLife,flifeIA,idC,idIA;
-	ArrayList<Character> characters = new ArrayList<Character>();
+	private int lifeP,dC,lifeIA,dIA,fLife,flifeIA,idC,idIA; // variable initialize
+	ArrayList<Character> characters = new ArrayList<Character>(); // add the arraylist characters and buttons
 	ArrayList<JButton> buttons = new ArrayList<JButton>();
 	
 		
-	public void special(int id,int idE,int Action,int ActionE,boolean AI)
+	public void special(int id,int idE,int Action,int ActionE,boolean AI) // methods for character's special move
 	{
-		if (id==1 && ActionE==1)
+		if (id==1 && ActionE==1) 
 		{
 			if(AI==true){lifeP=lifeP-dC;}
 			else{lifeIA=lifeIA-dIA;}
 			System.out.println("Special: dC reverberate");
 		}
 		
-		if (id==2)
+		if (id==2) // if player use Healer power
 		{
 			if(AI==true) 
 			{
@@ -156,26 +156,26 @@ public class Gameplay {
 		}
 	}
 	
-	public void go(int Action,int Action_AI,int idC,int idIA)
+	public void go(int Action,int Action_AI,int idC,int idIA) // method during a round when player and chooses the actions
 	{
 		boolean AI;
-		if (Action_AI==2)
+		if (Action_AI==2) // if IA use defense
 		{
 			System.out.println("AI protect itself");
 		}
-		if (Action==2)
+		if (Action==2) // if player use defense
 		{
 			System.out.println("You're protect yourself");
 		}
-		if (Action==1)
+		if (Action==1) // if player attack
 		{
-			System.out.println("You Attack");
+			System.out.println("You Attack"); // if in the same round, ia use defense
 			if (Action_AI==2)
 			{
 				System.out.println("But the AI protect itself");
 				lifeIA=lifeIA+1-dC;
 			}
-			else{lifeIA=lifeIA-dC;}
+			else{lifeIA=lifeIA-dC;} // ia takes player's damage
 		}
 		if (Action==3)
 		{
@@ -208,16 +208,16 @@ public class Gameplay {
 		go(Action,Action_AI,idC,idIA);
 	}
 	
-	public void normal(int Action,int idC,int idIA)
+	public void normal(int Action,int idC,int idIA) // algorytm of the normal mode
 	{
-		Random r = new Random();
+		Random r = new Random(); 
 		int Action_AI=1;
-		if (Action==1){Action_AI=2+r.nextInt(3-2);}
+		if (Action==1){Action_AI=2+r.nextInt(3-2);} // if player attack, ia choose only special move or defense
 		if (Action==3){Action_AI=3;}		
-		go(Action,Action_AI,idC,idIA);
+		go(Action,Action_AI,idC,idIA); // apply the action with parameters
 	}
 	
-	public void hard(int Action,int idC,int idIA)
+	public void hard(int Action,int idC,int idIA) // Algorytm of the hard mode 
 	{
 		int Action_AI=1;
 		if (Action==1)
@@ -246,7 +246,7 @@ public class Gameplay {
 		go(Action,Action_AI,idC,idIA);
 	}
 	
-	public void fight(int Difficulty,int Action,ArrayList<Character> characters)
+	public void fight(int Difficulty,int Action,ArrayList<Character> characters) // method who set characters with the mode choose by the player
 	{
 		setCharacter(characters);
 		if (Difficulty==1)
@@ -264,13 +264,13 @@ public class Gameplay {
 		if(lifeIA<=0||lifeP<=0)
 		{
 			
-			if(lifeP<=0)
+			if(lifeP<=0) // if player lose the game
 			{
 				
-				characters.clear();
-				buttons.clear();
-				characters.add(new Lose(720, 210, 0, 0, 0, 0));
-				if (idIA==1)
+				characters.clear(); // remove all character
+				
+				characters.add(new Lose(720, 210, 0, 0, 0, 0)); // add lose picture
+				if (idIA==1) // add only the Ia's character in the window
 				{
 					characters.add(new Damager(1400,550,1,0,0,0));
 				}
@@ -288,12 +288,12 @@ public class Gameplay {
 				}
 				
 			}
-			else
+			else // if the player win
 			{
-				characters.clear();
-				buttons.clear();
-				characters.add(new Win(750, 210, 0, 0, 0, 0));
-				if (idC==1)
+				characters.clear(); // remove all character
+				
+				characters.add(new Win(750, 210, 0, 0, 0, 0)); // add win picture
+				if (idC==1) // add only the player's character in the window
 				{
 					characters.add(new Damager(500,550,1,0,0,0));
 				}
@@ -313,12 +313,12 @@ public class Gameplay {
 		}
 		else
 		{
-		characters.clear();
+		characters.clear(); // to complete if ther is a problem
 		reset(characters);
 		}
 	}
 	
-	public void setCharacter(ArrayList<Character> characters)
+	public void setCharacter(ArrayList<Character> characters) // setting of the characters
 	{
 		for(int i=0;i<characters.size();i++)
 		{
@@ -338,9 +338,9 @@ public class Gameplay {
 				dIA = TempCharacter.getDmg();
 			}
 		}
-	}
+	} 
 	
-	public void reset(ArrayList<Character> characters)
+	public void reset(ArrayList<Character> characters) // redefine life and damage and display it
 	{
 		if (idC==1)
 		{
